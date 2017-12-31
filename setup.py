@@ -9,7 +9,7 @@ setup(
     url = "https://github.com/shichaoji2016/picutil",
     download_url = "https://github.com/shichaoji2016/picutil/archive/0.1.tar.gz",
     keywords = ['hosting','picture','image','python','flask'],
-    classifiers = [],
+    classifiers = ['Programming Language :: Python :: 2', 'Programming Language :: Python :: 3'],
     packages = find_packages(),
 )
 
