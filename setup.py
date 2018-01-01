@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = "picutils",
-    version = "0.1.5",
+    version = "0.1.6",
     description = "Hosting pictures into html, website, python Flask and GUI, image manupilation",
     author = "Shichao(Richard) Ji",
     author_email = "jshichao@vt.edu",

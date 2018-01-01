@@ -144,6 +144,7 @@ def convert2jpg(lis):
 def process_pics():
    
     """pass paras: pic folder PATH, if convert to jpg(y/n), if shrink size(y/n)"""
+    global path
     
     print('Batch processing images in a folder')
     if len(sys.argv)==4:
@@ -175,6 +176,7 @@ def del_entire_folder():
     if not path.strip():
         return
     shutil.rmtree(path)
+    print('Done! Deleted folder '+path)
         
 
                     
@@ -353,6 +355,7 @@ def move_out():
                 print (e)
                 # print('X', end='')
                 
+    print('Done! to folder :'+dest)
                 
                 
                 
@@ -406,7 +409,7 @@ def html_index():
     elif len(sys.argv)==3:
         path7, color = sys.argv[1], sys.argv[2]
     else:
-        path7 = str(input("path7 of folder contains pics: "))
+        path7 = str(input("PATH of folder contains pics: "))
         
     if not path7.strip():
         return
