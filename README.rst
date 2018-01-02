@@ -17,7 +17,7 @@ I have used the library processed almost 1 million photos for my other project f
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 http://iridescent.date/
-~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^
 
 .. |PyPI version| image:: https://badge.fury.io/py/picutils.svg
    :target: https://badge.fury.io/py/picutils
@@ -25,7 +25,9 @@ http://iridescent.date/
 installation
 ~~~~~~~~~~~~
 
-``$ pip install pictutils``
+pip install pictutils
+^^^^^^^^^^^^^^^^^^^^^
+
 
 usage example
 ~~~~~~~~~~~~~
@@ -35,6 +37,13 @@ Batch reducing pics size to about 200kb each, if you have many HD pics saved in 
 
 -  Run $ python -m picutils.process\_pics , and then pass the images
    folder's name, in the directory where that folder resides
+
+.. image:: https://user-images.githubusercontent.com/20619704/34473164-3901bc16-ef3d-11e7-9f78-6c62fd4b3f15.jpg
+   :alt: Demo 1
+   :align: left
+
+
+
 
 Making index.html webbrowser file for a folder of pics for overall viewing, or hosting in a webpage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -48,6 +57,14 @@ Making index.html webbrowser file for a folder of pics for overall viewing, or h
       website when visitors has slow internet
    -  Thanks to myphotopack.com for those pretty pictures
 
+.. image:: https://user-images.githubusercontent.com/20619704/34473402-1d233422-ef40-11e7-9bb2-ab373c5a6377.jpg
+   :width: 80%
+   :alt: Demo 2
+   :align: left
+
+
+   
+   
 Making a viewer.html webbrowser file for a folder of pics for single viewing, e.g. hosting a manga Website
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -56,3 +73,8 @@ Making a viewer.html webbrowser file for a folder of pics for single viewing, e.
 
    -  click right side of the photo will view next, while clicking left
       side turns to previous photo
+
+.. image:: https://user-images.githubusercontent.com/20619704/34473527-e93fd4ce-ef41-11e7-94b9-85873cd9219e.jpg
+   :width: 80%
+   :alt: Demo 3
+   :align: left
