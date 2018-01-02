@@ -11,6 +11,11 @@ from multiprocessing import cpu_count
 from multiprocessing.dummy import Pool as ThreadPool
 import shutil
 
+try:
+    reload(sys)
+    sys.setdefaultencoding("utf-8")
+except:
+    print('python3')
 
 try:
    input = raw_input
@@ -69,23 +74,23 @@ def shrink(file):
     try:
         
         if size>2500:
-            rate=25            
+            rate=30            
         elif size>2000:
-            rate=30
-        elif size>1500:
             rate=40
-        elif size>1000:
+        elif size>1500:
             rate=50
-        elif size>500:
+        elif size>1000:
             rate=60
+        elif size>500:
+            rate=70
         elif size>400:
-            rate=65
-        elif size>300:
-            rate=75
-        elif size>200:
             rate=80
-        elif size>100:
+        elif size>300:
             rate=85
+        elif size>200:
+            rate=90
+        elif size>100:
+            rate=95
 ##        elif size>60:
 ##            rate=90                 
         else:
@@ -380,7 +385,7 @@ def thumb(one):
             name = os.path.basename(one)
             
 
-            dest = cwd+path7+'/thumbnail/' + name.split('.')[:-1][0] + '_re.jpg'
+            dest = cwd+path7+'/thumbnail/' + name[:-4] + '_re.jpg'
 
 
             img.save(dest)
@@ -474,7 +479,7 @@ def html_index():
         # print(repr(cwd))
 
         web += '<a href="' + cwd + path7 + '/' + pic + '">' + \
-                '<img src="' + cwd + path7 + '/thumbnail/' + ''.join(pic.split('.')[:-1])+'_re.jpg" title="view'+pic+'" width=200 />&nbsp;</a>'
+                '<img src="' + cwd + path7 + '/thumbnail/' + pic[:-4]+'_re.jpg" title="view'+pic+'" width=200 />&nbsp;</a>'
 
 
     web += '<a href="http://uconn.science" target="_blank" style="color:orange;">&copy</a></body></html>'
