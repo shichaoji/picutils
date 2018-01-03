@@ -10,6 +10,7 @@ from natsort import natsorted
 from multiprocessing import cpu_count
 from multiprocessing.dummy import Pool as ThreadPool
 import shutil
+import argparse
 
 try:
     reload(sys)
@@ -149,17 +150,27 @@ def convert2jpg(lis):
 def process_pics():
    
     """pass paras: pic folder PATH, if convert to jpg(y/n), if shrink size(y/n)"""
-    global path
-    
+    global path        
     print('Batch processing images in a folder')
-    if len(sys.argv)==4:
-        
-        path, flag1, flag2 = sys.argv[1], sys.argv[2], sys.argv[3]
-    else:
-        path = str(input("PATH of folder contains pics: "))
+    
+    try:
+        args
 
-        flag1 = str(input("convert pics formats to jpg? (y/n): "))
-        flag2 = str(input("shrink pics size? (y/n): "))
+        path = str(input("PATH of folder contains pics: ")) if args.folder=='NO' else args.folder
+
+        flag1 = input("convert pics formats to jpg? (y/n): ")=='y' if not args.convert else args.folder
+        flag2 = input("shrink pics size? (y/n): ")=='y' if not args.shrink else args.folder
+        
+    except:
+        if len(sys.argv)==4:
+
+            path, flag1, flag2 = sys.argv[1], sys.argv[2], sys.argv[3]
+        else:
+            path = str(input("PATH of folder contains pics: "))
+
+            flag1 = str(input("convert pics formats to jpg? (y/n): "))
+            flag2 = str(input("shrink pics size? (y/n): "))
+
 
 
         
@@ -169,9 +180,9 @@ def process_pics():
     d = os.listdir(path)
     e = [i for i in d if i.find('.')>0]
                     
-    if flag1=='y':
+    if flag1:
         convert2jpg(e)
-    if flag2=='y':
+    if flag2:
         multi_shrink(e)    
                     
 
@@ -191,11 +202,18 @@ def html_viewer():
     """pass folder PATH, create a html viewer for a folder of images"""
     
     #print('Batch indexing images to html')
-    if len(sys.argv)==2:
+    
+    try:
+        args
+
+        path = str(input("PATH of folder contains pics: ")) if args.folder=='NO' else args.folder
         
-        path = sys.argv[1]
-    else:
-        path = str(input("PATH of folder contains pics: "))
+    except:
+        if len(sys.argv)==2:
+
+            path = sys.argv[1]
+        else:
+            path = str(input("PATH of folder contains pics: "))        
         
     if not path.strip():
         return
@@ -315,11 +333,16 @@ def html_viewer():
 # move files from a folder (1 leyer)        
 def move_out():
 
-    if len(sys.argv)==2:
+    try:
+        args
+        path = str(input("PATH of folder contains pics: ")) if args.folder=='NO' else args.folder
+        
+    except:
+        if len(sys.argv)==2:
 
-        path = sys.argv[1]
-    else:
-        path = str(input("PATH of folder contains pics: "))
+            path = sys.argv[1]
+        else:
+            path = str(input("PATH of folder contains pics: "))        
         
     if not path.strip():
         return
@@ -404,17 +427,24 @@ def html_index():
     """parameters: path, background color"""
     global path7, cwd
 
-    
-    
     color=None
-    if len(sys.argv)==2:
+    
+    try:
+        args
+    
+    
+        path7 = str(input("PATH of folder contains pics: ")) if args.folder=='NO' else args.folder
         
-        path7 = sys.argv[1]
+    except:
+        if len(sys.argv)==2:
 
-    elif len(sys.argv)==3:
-        path7, color = sys.argv[1], sys.argv[2]
-    else:
-        path7 = str(input("PATH of folder contains pics: "))
+            path7 = sys.argv[1]
+
+        elif len(sys.argv)==3:
+            path7, color = sys.argv[1], sys.argv[2]
+        else:
+            path7 = str(input("PATH of folder contains pics: "))        
+
         
     if not path7.strip():
         return
@@ -496,3 +526,61 @@ def html_index():
             print("Thank you!")
     else:
         print("Thank you!")
+        
+        
+        
+        
+        
+def main():
+    """ Called when the command is executed
+        Calls the function that starts the script
+        handles KeyboardInterrupt
+    """
+    try:
+        console_main()
+    except KeyboardInterrupt:
+        print ("Program stopped by user.")
+
+def console_main():
+    global args
+    """ This function handles all the console action. 
+    Gets the arguments from the command line. """
+
+    parser = argparse.ArgumentParser(
+        description='Choose what func to execute')
+    
+    parser.add_argument('folder',type=str, nargs="?", default='NO', help="PATH of the image folder.")
+    #parser.add_argument('index', action="store_true", help="convert pic to jpg, shrink size.")
+    #parser.add_argument('view', action="store_true", help="convert pic to jpg, shrink size.")
+    
+    parser.add_argument('-p', '--process', help="convert pic to jpg, shrink size",
+                       action="store_true")   
+    parser.add_argument('-i', '--index', help="make html index for pics",
+                        action="store_true")    
+    parser.add_argument('-v', '--view', help="make html viewer for pics",
+                        action="store_true")
+    parser.add_argument('--color', type=str, default='white',
+                        help="background color")
+    parser.add_argument('--nthreads', type=int, default=8,
+                        help="The number of threads to use when processing images.")
+    parser.add_argument('-c', '--convert', help="when choose process, then convert pics to jpg or not",
+                        action="store_true")  
+    parser.add_argument('-s', '--shrink', help="when choose process, then shrink image size or not",
+                        action="store_true")  
+    args = parser.parse_args()
+    #print(args)
+    
+    if len(sys.argv)==1 or not any([args.process, args.index, args.view]):
+        parser.print_help()
+        sys.exit(1)     
+    
+    if args.process:
+        process_pics()
+    if args.index:
+        html_index()
+    if args.view:
+        html_viewer()
+        
+    return
+
+

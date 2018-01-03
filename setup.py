@@ -18,7 +18,7 @@ with open(os.path.join(_HERE, 'README.rst'),'r+') as fh:
 
 setup(
     name = "picutils",
-    version = "0.1.6.8.5",
+    version = "0.1.6.8.9",
     description = "Hosting pictures into html, website, python Flask and GUI, image manupilation",
     long_description = long_description,
     author = "Shichao(Richard) Ji",
@@ -36,6 +36,9 @@ setup(
     install_requires=[
         'Pillow',
         'natsort',
-      ]
+      ],
+    entry_points={
+          'console_scripts': ['picutils=picutils:main'],
+      },
 )
 
