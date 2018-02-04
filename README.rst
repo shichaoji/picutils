@@ -35,6 +35,10 @@ usage example
 Batch reducing pics size to about 200kb each, if you have many HD pics saved in a folder, run the library will batch coverting pics in the folder to .jpg and then resizing all pics till 100-200 kb each.R
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Update: in the shell, just type: picutils
+~~~~~~~~~~~~~
+
+
 -  Run $ python -m picutils.process\_pics , and then pass the images
    folder's name, in the directory where that folder resides
 
