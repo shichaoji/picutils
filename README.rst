@@ -35,11 +35,11 @@ usage example
 Batch reducing pics size to about 200kb each, if you have many HD pics saved in a folder, run the library will batch coverting pics in the folder to .jpg and then resizing all pics till 100-200 kb each.R
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Update: in the shell, just type: picutils
+Update: in the shell, just type and run: picutils for help
 ~~~~~~~~~~~~~
 
 
--  Run $ python -m picutils.process\_pics , and then pass the images
+-  Run $ picutils -p , and then pass the images
    folder's name, in the directory where that folder resides
 
 .. image:: https://user-images.githubusercontent.com/20619704/34473164-3901bc16-ef3d-11e7-9f78-6c62fd4b3f15.jpg
@@ -52,7 +52,7 @@ Update: in the shell, just type: picutils
 Making index.html webbrowser file for a folder of pics for overall viewing, or hosting in a webpage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--  Run $ python -m picutils.html\_index , and then pass the images
+-  Run $ picutils -i , and then pass the images
    folder's name, in the directory where that folder resides
 
    -  the program will make a sub-thumbnail folder, so even if image
@@ -72,7 +72,7 @@ Making index.html webbrowser file for a folder of pics for overall viewing, or h
 Making a viewer.html webbrowser file for a folder of pics for single viewing, e.g. hosting a manga Website
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--  Run $ python -m picutils.html\_viewer , and then pass the images
+-  Run $ picutils -v , and then pass the images
    folder's name, in the directory where that folder resides
 
    -  click right side of the photo will view next, while clicking left
